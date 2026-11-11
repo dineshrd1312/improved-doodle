@@ -718,7 +718,11 @@ img,svg { display: block; }
    ========================================================= */
 const CONFIG = {
   BRAND_NAME: "Meridian AI",            // PLACEHOLDER: your firm's name
-  FORM_ENDPOINT: "",                    // e.g. "https://formspree.io/f/xxxxxxx" — blank = dev mode (simulated success)
+  // Supabase (preferred): leads go into the `leads` table. The publishable key is safe in the browser;
+  // the table only allows inserts (see supabase/migrations/).
+  SUPABASE_URL: "https://spngofhafnpglabtprvj.supabase.co",
+  SUPABASE_PUBLISHABLE_KEY: "sb_publishable_OuaMZuXdFHJ9Vn7ZruAVKQ_Bx7t291W",
+  FORM_ENDPOINT: "",                    // alternative: Formspree/CRM URL. All blank = dev mode (simulated success)
   EXTERNAL_FORM_URL: "",                // e.g. Typeform / Google Form / Calendly link — blank hides the link
   CONTACT_EMAIL: "hello@example.com",   // PLACEHOLDER
   PRIVACY_URL: "#",                     // PLACEHOLDER
@@ -747,7 +751,7 @@ const CONFIG = {
   function track(event, data) {
     const payload = Object.assign({ event }, data);
     if (Array.isArray(window.dataLayer)) window.dataLayer.push(payload);
-    if (!CONFIG.FORM_ENDPOINT) console.debug("[track]", payload);
+    if (!CONFIG.FORM_ENDPOINT && !CONFIG.SUPABASE_URL) console.debug("[track]", payload);
   }
   document.addEventListener("click", (e) => {
     const cta = e.target.closest("[data-cta]");
@@ -832,7 +836,28 @@ const CONFIG = {
     submitBtn.classList.add("is-loading");
 
     try {
-      if (CONFIG.FORM_ENDPOINT) {
+      if (CONFIG.SUPABASE_URL && CONFIG.SUPABASE_PUBLISHABLE_KEY) {
+        const headers = {
+          "Content-Type": "application/json",
+          apikey: CONFIG.SUPABASE_PUBLISHABLE_KEY,
+          Prefer: "return=minimal",
+        };
+        // Legacy anon keys are JWTs and also go in Authorization; sb_publishable_ keys must not.
+        if (CONFIG.SUPABASE_PUBLISHABLE_KEY.startsWith("eyJ")) headers.Authorization = "Bearer " + CONFIG.SUPABASE_PUBLISHABLE_KEY;
+        const res = await fetch(CONFIG.SUPABASE_URL.replace(/\/$/, "") + "/rest/v1/leads", {
+          method: "POST",
+          headers,
+          body: JSON.stringify({
+            name: data.name.trim(),
+            email: data.email.trim(),
+            company: data.company.trim(),
+            goal: data.goal,
+            note: data.note ? data.note.trim() : null,
+            source_url: data.source,
+          }),
+        });
+        if (!res.ok) throw new Error("Supabase HTTP " + res.status + " " + (await res.text()));
+      } else if (CONFIG.FORM_ENDPOINT) {
         const res = await fetch(CONFIG.FORM_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
