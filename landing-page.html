@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Consulting: First Workflow Live in 30 Days | Meridian AI</title>
+  <meta name="description" content="We find, build, and measure AI workflows that save your team hours every week. Book a free 30-minute AI Opportunity Call and get a written plan in 48h." />
+  <!-- Remove noindex once all sample proof is replaced with real proof -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+/* ===== Design tokens (edit brand here) ===== */
+:root {
+  --ink: #0b1630;          /* dark sections, headings */
+  --ink-2: #13224a;
+  --text: #2a3550;
+  --muted: #5d6882;
+  --line: #e3e7ef;
+  --bg: #ffffff;
+  --tint: #f5f7fb;
+  --brand: #3b5bfd;        /* accents, highlights */
+  --brand-soft: #e9edff;
+  --cta: #ff5a1f;          /* reserved for CTAs only */
+  --cta-hover: #e84a12;
+  --good: #12b76a;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(11,22,48,.06), 0 8px 24px rgba(11,22,48,.08);
+  --font-head: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --wrap: 1140px;
+}
+
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; font: 16px/1.6 var(--font-body); color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+h1,h2,h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.15; margin: 0 0 .5em; letter-spacing: -.02em; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 800; }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 800; }
+h3 { font-size: 1.12rem; font-weight: 700; }
+p { margin: 0 0 1em; }
+a { color: var(--brand); }
+img,svg { display: block; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+.wrap--narrow { max-width: 820px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 8px; z-index: 100; }
+.skip:focus { left: 8px; }
+
+/* ===== Buttons ===== */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: 600 1rem/1 var(--font-body); text-decoration: none; border: 0; border-radius: 10px; cursor: pointer; padding: 14px 22px; min-height: 48px; transition: background .15s, transform .15s, box-shadow .15s; }
+.btn--cta { background: var(--cta); color: #fff; box-shadow: 0 6px 18px rgba(255,90,31,.32); }
+.btn--cta:hover { background: var(--cta-hover); transform: translateY(-1px); }
+.btn--sm { padding: 10px 16px; min-height: 44px; font-size: .92rem; }
+.btn--lg { padding: 18px 28px; font-size: 1.06rem; }
+.btn--block { width: 100%; }
+.btn[disabled] { opacity: .75; cursor: progress; transform: none; }
+.link-arrow { font-weight: 600; text-decoration: none; color: var(--ink); }
+.link-arrow:hover { text-decoration: underline; }
+.link-arrow--light { color: #fff; display: inline-block; margin-top: 8px; }
+.micro { font-size: .86rem; color: var(--muted); margin: 12px 0 0; }
+.micro--center { text-align: center; }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 28px; }
+.cta-center { text-align: center; margin-top: 48px; }
+
+/* ===== Nav ===== */
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.9); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.nav.is-scrolled { border-color: var(--line); }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.logo { display: flex; align-items: center; gap: 10px; font: 800 1.12rem var(--font-head); color: var(--ink); text-decoration: none; }
+.logo svg { color: var(--brand); }
+.nav__links { display: none; gap: 28px; }
+.nav__links a { color: var(--text); text-decoration: none; font-weight: 500; font-size: .95rem; }
+.nav__links a:hover { color: var(--ink); }
+
+/* ===== Eyebrow & section heads ===== */
+.eyebrow { display: inline-block; font: 700 .78rem/1 var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--brand); background: var(--brand-soft); padding: 7px 12px; border-radius: 999px; margin-bottom: 18px; }
+.eyebrow--light { color: #c9d3ff; background: rgba(255,255,255,.08); }
+.section { padding: 88px 0; }
+.section--tint { background: var(--tint); }
+.section--ink { background: var(--ink); color: #c7cee0; }
+.section--ink h2, .section--ink h3 { color: #fff; }
+.sec-head { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+.sub { font-size: 1.12rem; color: var(--muted); }
+.sec-close { text-align: center; max-width: 680px; margin: 40px auto 0; font-size: 1.1rem; }
+.muted-light { color: #aab4cc; }
+
+.grid { display: grid; gap: 20px; }
+
+/* ===== 1 Hero ===== */
+.hero { padding: 56px 0 72px; background: radial-gradient(1200px 500px at 85% -10%, #eef1ff 0%, transparent 60%), #fff; }
+.hero__grid { display: grid; gap: 48px; align-items: center; }
+.hl { color: var(--brand); }
+.lead { font-size: 1.15rem; max-width: 600px; color: var(--text); }
+.lead--light { color: #c7cee0; }
+.rating { margin-top: 18px; font-size: .92rem; color: var(--muted); }
+.rating span { color: #f5a524; letter-spacing: 2px; margin-right: 6px; }
+.hero__card { position: relative; }
+.wf { background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: 24px; }
+.wf__head { font-size: .82rem; font-weight: 600; color: var(--good); display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: .06em; }
+.wf__title { margin: 10px 0 20px; font-size: 1.3rem; }
+.wf__row { display: grid; grid-template-columns: 54px 1fr auto; gap: 12px; align-items: center; font-size: .9rem; margin-bottom: 12px; }
+.wf__row b { color: var(--ink); }
+.bar { height: 10px; background: var(--tint); border-radius: 99px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: var(--w); background: #c3cada; border-radius: inherit; }
+.bar--good i { background: var(--good); }
+.wf__meta { list-style: none; margin: 20px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; font-size: .8rem; color: var(--muted); }
+.wf__meta b { display: block; font: 800 1.35rem var(--font-head); color: var(--ink); }
+.wf--float { position: absolute; left: -12px; bottom: -26px; padding: 12px 16px; font-size: .86rem; display: flex; align-items: center; gap: 8px; border-radius: 12px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.dot--live { background: var(--good); box-shadow: 0 0 0 4px rgba(18,183,106,.18); animation: pulse 2s infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 7px rgba(18,183,106,.05); } }
+
+/* ===== 2 Trust ===== */
+.trust { padding: 44px 0 56px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.trust__title { font: 600 .82rem var(--font-body); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); text-align: center; margin-bottom: 22px; }
+.logos { list-style: none; padding: 0; margin: 0 0 36px; display: flex; flex-wrap: wrap; justify-content: center; gap: 18px 44px; font: 800 1.15rem var(--font-head); color: #9aa3b8; letter-spacing: .02em; }
+.stats { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; text-align: center; }
+.stats b { display: block; font: 800 2.3rem var(--font-head); color: var(--ink); }
+.stats span { color: var(--muted); font-size: .95rem; }
+
+/* ===== 3 Problem ===== */
+.pain { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--cta); border-radius: var(--radius); padding: 24px 24px 10px; }
+.pain h3 { font-size: 1.15rem; }
+.pain p { color: var(--muted); }
+
+/* ===== 4 Stakes ===== */
+.stakes { display: grid; gap: 48px; align-items: center; }
+.math { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 24px 0 14px; font-size: .95rem; }
+.math span { background: var(--ink-2); padding: 12px 16px; border-radius: 12px; color: #c7cee0; }
+.math b { font: 800 1.5rem var(--font-head); color: #fff; margin-right: 4px; }
+.math i { font-style: normal; font-size: 1.4rem; color: #7d89a8; }
+.math__total { background: var(--brand) !important; }
+.stakes__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.stakes__list li { border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 20px 22px 6px; background: rgba(255,255,255,.03); }
+
+/* ===== 5 Approach ===== */
+.steps4 { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; counter-reset: s; }
+.steps4 li { position: relative; padding: 26px 24px 12px; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; }
+.steps4__n { font: 800 .9rem var(--font-head); color: var(--brand); background: var(--brand-soft); border-radius: 8px; padding: 6px 10px; display: inline-block; margin-bottom: 14px; }
+.steps4 p { color: var(--muted); }
+
+/* ===== 6 Services ===== */
+.card { position: relative; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px 16px; display: flex; flex-direction: column; }
+.card p { color: var(--muted); }
+.card__tag { font-size: .8rem; font-weight: 600; color: var(--brand) !important; margin-bottom: 8px; }
+.card__fit { margin-top: auto; padding-top: 14px; border-top: 1px dashed var(--line); font-size: .9rem; }
+.card__fit b { color: var(--ink); }
+.card--featured { border: 2px solid var(--brand); box-shadow: 0 12px 32px rgba(59,91,253,.15); }
+.card__badge { position: absolute; top: -13px; left: 24px; background: var(--brand); color: #fff !important; font-size: .76rem; font-weight: 700; padding: 5px 11px; border-radius: 999px; }
+
+/* ===== 7 Use cases ===== */
+.uc { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 24px 18px; background: #fff; }
+.uc p { color: var(--muted); }
+.uc__metric { display: inline-block; margin: 4px 0 0 !important; font-weight: 700; color: #08875a !important; background: #e7f8f0; padding: 6px 10px; border-radius: 8px; font-size: .88rem; }
+
+/* ===== 8 Process ===== */
+.timeline { list-style: none; padding: 0; margin: 0 auto; max-width: 760px; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.timeline li { position: relative; padding: 0 0 30px 60px; counter-increment: t; }
+.timeline li::before { content: counter(t); position: absolute; left: 0; top: -4px; width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: #fff; font: 800 1rem/40px var(--font-head); text-align: center; }
+.timeline h3 { display: inline; }
+.timeline small { font: 500 .85rem var(--font-body); color: var(--muted); margin-left: 6px; }
+.timeline p { color: var(--muted); margin-top: 6px; }
+.timeline__badge { display: inline-block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #08875a; background: #e7f8f0; padding: 4px 8px; border-radius: 6px; margin-right: 8px; vertical-align: 2px; }
+
+/* ===== 9 Results ===== */
+.case { border-radius: var(--radius); background: var(--ink); color: #c7cee0; padding: 28px 26px 12px; }
+.case__who { font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; color: #8fa0ff; font-weight: 600; }
+.case__big { font: 800 1.9rem/1.1 var(--font-head); color: #fff; margin-bottom: 20px; }
+.case dl { margin: 0; }
+.case dt { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: #7d89a8; font-weight: 700; }
+.case dd { margin: 2px 0 14px; }
+
+/* ===== 10 Testimonials ===== */
+.quote { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
+.quote blockquote { margin: 0; font-size: 1.05rem; color: var(--ink); line-height: 1.55; }
+.quote figcaption { display: flex; align-items: center; gap: 12px; font-size: .9rem; color: var(--muted); }
+.quote figcaption b { display: block; color: var(--ink); }
+.avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; font-weight: 700; flex: none; }
+
+/* ===== 11 Compare ===== */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+.compare { width: 100%; border-collapse: collapse; min-width: 680px; font-size: .95rem; }
+.compare th, .compare td { padding: 16px 18px; text-align: center; border-bottom: 1px solid var(--line); }
+.compare tbody tr:last-child > * { border-bottom: 0; }
+.compare thead th { font: 700 .92rem var(--font-head); color: var(--ink); background: var(--tint); }
+.compare tbody th { text-align: left; font-weight: 600; color: var(--ink); }
+.compare .us { background: var(--brand-soft); color: var(--ink); }
+.compare thead .us { background: var(--brand); color: #fff; }
+.compare .yes { color: #08875a; font-weight: 700; }
+.compare .us.yes { color: #08875a; }
+.compare .no { color: #c0392b; }
+
+/* ===== 12 FAQ ===== */
+.faq details { background: #fff; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 56px 20px 22px; font: 700 1.04rem var(--font-head); color: var(--ink); position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 22px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: var(--brand); transition: transform .2s; }
+.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq details p { padding: 0 22px 8px; color: var(--muted); }
+
+/* ===== 13 Contact ===== */
+.contact { padding: 96px 0; }
+.contact__grid { display: grid; gap: 40px; align-items: start; }
+.checks { list-style: none; padding: 0; margin: 24px 0; }
+.checks li { position: relative; padding-left: 32px; margin-bottom: 12px; color: #e3e8f5; }
+.checks li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--good); color: #fff; font-size: .78rem; font-weight: 800; display: grid; place-items: center; }
+.guarantee { display: flex; gap: 14px; align-items: flex-start; border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 18px 20px; color: #8fa0ff; background: rgba(255,255,255,.04); }
+.guarantee p { margin: 0; color: #c7cee0; }
+.guarantee b { color: #fff; }
+.guarantee svg { flex: none; }
+.form-card { background: #fff; border-radius: 18px; padding: 28px 24px; box-shadow: 0 24px 60px rgba(0,0,0,.35); color: var(--text); }
+.field { margin-bottom: 16px; }
+.field label { display: block; font-weight: 600; font-size: .92rem; color: var(--ink); margin-bottom: 6px; }
+.field label span[aria-hidden] { color: var(--cta); }
+.opt { color: var(--muted); font-weight: 400; }
+.field input, .field select, .field textarea { width: 100%; font: inherit; color: var(--ink); padding: 13px 14px; border: 1.5px solid #cfd5e2; border-radius: 10px; background: #fff; min-height: 48px; transition: border-color .15s, box-shadow .15s; }
+.field textarea { resize: vertical; min-height: 88px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 4px rgba(59,91,253,.15); }
+.field.is-invalid input, .field.is-invalid select { border-color: #d92d20; }
+.err { color: #d92d20; font-size: .84rem; margin: 6px 0 0; min-height: 0; }
+.err:empty { display: none; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-status { color: #d92d20; font-size: .9rem; text-align: center; margin: 10px 0 0; }
+.form-status:empty { display: none; }
+.spinner { display: none; width: 18px; height: 18px; border: 2.5px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; animation: spin .8s linear infinite; }
+.is-loading .spinner { display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.success { text-align: center; padding: 28px 8px; }
+.success:focus { outline: none; }
+.success__icon { width: 64px; height: 64px; border-radius: 50%; background: #e7f8f0; color: var(--good); font-size: 2rem; font-weight: 800; display: grid; place-items: center; margin: 0 auto 16px; }
+.alt-link { text-align: center; margin: 18px 0 0; padding-top: 16px; border-top: 1px solid var(--line); font-size: .92rem; }
+.alt-link a { font-weight: 600; text-decoration: none; }
+.alt-link a:hover { text-decoration: underline; }
+
+/* ===== Footer ===== */
+.footer { background: #070f22; color: #8892aa; font-size: .9rem; padding: 28px 0 96px; }
+.footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.footer p { margin: 0; }
+.footer nav { display: flex; gap: 20px; }
+.footer a { color: #c7cee0; text-decoration: none; }
+
+/* ===== Sticky mobile CTA ===== */
+.sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid var(--line); box-shadow: 0 -6px 20px rgba(11,22,48,.08); transform: translateY(110%); transition: transform .25s; }
+.sticky-cta.is-visible { transform: none; }
+
+/* ===== Sample-content labels (remove when real proof is in) ===== */
+.sample-tag { display: inline-block; vertical-align: 1px; font: 700 .68rem/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: #8a5a00; background: #fff3d6; border: 1px solid #f3d38a; padding: 4px 7px; border-radius: 6px; margin-left: 4px; }
+.sample-note { font-size: .86rem; color: var(--muted); text-align: center; margin: 14px auto 0; }
+.sample-note .sample-tag { margin: 0 6px 0 0; }
+.logo-slot { font: 600 .9rem var(--font-body); color: #a4adc0; border: 1.5px dashed #cfd5e2; border-radius: 10px; padding: 10px 18px; letter-spacing: 0; }
+
+/* ===== Reveal ===== */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.is-in { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* ===== Breakpoints ===== */
+@media (min-width: 640px) {
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .steps4 { grid-template-columns: repeat(2, 1fr); }
+  .stats { grid-template-columns: repeat(3, 1fr); }
+  .form-card { padding: 34px 32px; }
+}
+@media (min-width: 960px) {
+  .nav__links { display: flex; }
+  .hero { padding: 80px 0 104px; }
+  .hero__grid { grid-template-columns: 1.15fr .85fr; }
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+  .steps4 { grid-template-columns: repeat(4, 1fr); }
+  .stakes { grid-template-columns: 1.1fr .9fr; }
+  .contact__grid { grid-template-columns: 1fr 1fr; gap: 64px; }
+  .section { padding: 104px 0; }
+  .sticky-cta { display: none; }
+  .footer { padding-bottom: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="logo" href="#top" aria-label="Home">
+        <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M8 22V10l8 7 8-7v12" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-brand>Meridian AI</span>
+      </a>
+      <nav class="nav__links" aria-label="Page sections">
+        <a href="#approach">Approach</a>
+        <a href="#services">Services</a>
+        <a href="#results">Results</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn--cta btn--sm" href="#contact" data-cta="nav">Book my free AI call</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1. HERO -->
+    <section class="hero" id="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">AI consulting for growing teams</p>
+          <h1>Your first AI workflow, live and paying off in <span class="hl">30 days.</span></h1>
+          <p class="lead">We find the work that's eating your team's week, build an AI system that does it inside the tools you already use, and prove the ROI — strategy, build, and adoption from one senior team.</p>
+          <div class="cta-row">
+            <a class="btn btn--cta btn--lg" href="#contact" data-cta="hero">Book my free AI call</a>
+            <a class="link-arrow" href="#approach">See how it works ↓</a>
+          </div>
+          <p class="micro">30 minutes · No pitch deck · Written AI plan in 48h</p>
+          <!-- PLACEHOLDER: replace rating with real review data -->
+          <p class="rating"><span aria-hidden="true">★★★★★</span> Rated 4.9/5 by 40+ operations leaders <span class="sample-tag">Example</span></p>
+        </div>
+
+        <!-- PLACEHOLDER: example workflow numbers -->
+        <div class="hero__card" aria-label="Example result: invoice processing">
+          <div class="wf">
+            <div class="wf__head"><span class="dot dot--live"></span> Live workflow <span class="sample-tag">Example</span></div>
+            <h3 class="wf__title">Invoice processing agent</h3>
+            <div class="wf__bars">
+              <div class="wf__row"><span>Before</span><div class="bar"><i style="--w:100%"></i></div><b>14 hrs/wk</b></div>
+              <div class="wf__row"><span>After</span><div class="bar bar--good"><i style="--w:14%"></i></div><b>2 hrs/wk</b></div>
+            </div>
+            <ul class="wf__meta">
+              <li><b>27</b> days to launch</li>
+              <li><b>−86%</b> manual time</li>
+              <li><b>96%</b> team adoption</li>
+            </ul>
+          </div>
+          <div class="wf wf--float">
+            <span class="dot dot--live"></span> Support replies drafted: <b>1,284</b> this week
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TRUST BAR -->
+    <section class="trust" id="trust" aria-labelledby="trust-h">
+      <div class="wrap">
+        <h2 id="trust-h" class="trust__title">Trusted by operations teams at</h2>
+        <!-- PLACEHOLDER: replace with real client logos (with permission) -->
+        <ul class="logos">
+          <li class="logo-slot">Your client</li><li class="logo-slot">Your client</li><li class="logo-slot">Your client</li><li class="logo-slot">Your client</li><li class="logo-slot">Your client</li>
+        </ul>
+        <!-- PLACEHOLDER: replace stats with real figures -->
+        <ul class="stats">
+          <li><b data-count="38">38</b><span>workflows in production</span></li>
+          <li><b data-count="11400" data-suffix="+">11,400+</b><span>hours saved per year</span></li>
+          <li><b data-count="27" data-suffix=" days">27 days</b><span>median time to first launch</span></li>
+        </ul>
+        <p class="sample-note"><span class="sample-tag">Example</span> Sample figures shown for layout. Real client results coming soon.</p>
+      </div>
+    </section>
+
+    <!-- 3. PROBLEM -->
+    <section class="section" id="problem" aria-labelledby="problem-h">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">Sound familiar?</p>
+          <h2 id="problem-h">You've tried AI. It hasn't paid off yet.</h2>
+        </header>
+        <div class="grid grid--2">
+          <article class="pain reveal"><h3>"We bought licences. Nobody uses them."</h3><p>The tools are there. The habits, integrations, and training aren't.</p></article>
+          <article class="pain reveal"><h3>"Our pilot looked great in the demo — then died."</h3><p>It never connected to real data, real systems, or a real owner.</p></article>
+          <article class="pain reveal"><h3>"My team is drowning in copy-paste work."</h3><p>Skilled people spend hours moving data between five tools.</p></article>
+          <article class="pain reveal"><h3>"Every vendor says AI. Nobody shows ROI."</h3><p>You don't need more hype. You need one number that moved.</p></article>
+        </div>
+        <p class="sec-close">It's not you. Most AI projects stall between the demo and daily use. <strong>That gap is exactly where we work.</strong></p>
+      </div>
+    </section>
+
+    <!-- 4. COST OF INACTION -->
+    <section class="section section--ink" id="stakes" aria-labelledby="stakes-h">
+      <div class="wrap stakes">
+        <div>
+          <p class="eyebrow eyebrow--light">The cost of waiting</p>
+          <h2 id="stakes-h">Every month without a plan has a price.</h2>
+          <div class="math" aria-label="5 people times 8 hours a week equals 2,080 hours a year">
+            <span><b>5</b> people</span><i>×</i><span><b>8</b> hrs/week</span><i>=</i><span class="math__total"><b>2,080</b> hrs/year</span>
+          </div>
+          <p class="muted-light">Roughly one full-time salary spent on tasks software could handle.</p>
+          <a class="link-arrow link-arrow--light" href="#contact" data-cta="stakes">Find out what it's costing you →</a>
+        </div>
+        <ul class="stakes__list">
+          <li><h3>Hours lost</h3><p>Repetitive work keeps scaling with headcount, not with software.</p></li>
+          <li><h3>Ground lost</h3><p>Competitors who ship AI into ops respond faster and price sharper.</p></li>
+          <li><h3>Patience lost</h3><p>Your board, and your best people, are asking what the plan is.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. SOLUTION / APPROACH -->
+    <section class="section" id="approach" aria-labelledby="approach-h">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">Our approach</p>
+          <h2 id="approach-h">The 30-Day ROI Sprint: one workflow, built and measured.</h2>
+          <p class="sub">No six-month roadmap. We pick the single highest-return workflow, ship it, and prove it before you spend another dollar.</p>
+        </header>
+        <ol class="steps4">
+          <li class="reveal"><span class="steps4__n">01</span><h3>Find</h3><p>Map your workflows and rank them by hours saved vs. effort.</p></li>
+          <li class="reveal"><span class="steps4__n">02</span><h3>Build</h3><p>Ship a production AI system inside your existing tools and cloud.</p></li>
+          <li class="reveal"><span class="steps4__n">03</span><h3>Adopt</h3><p>Train your team, set up champions, and make it the default way of working.</p></li>
+          <li class="reveal"><span class="steps4__n">04</span><h3>Measure</h3><p>Track the agreed metric weekly so ROI is a number, not a promise.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. SERVICES -->
+    <section class="section section--tint" id="services" aria-labelledby="services-h">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">Services</p>
+          <h2 id="services-h">Start small. Scale what works.</h2>
+        </header>
+        <div class="grid grid--4">
+          <article class="card reveal">
+            <p class="card__tag">2 weeks</p>
+            <h3>AI Opportunity Sprint</h3>
+            <p>Workflow audit, ranked use cases, ROI model, and a 90-day roadmap.</p>
+            <p class="card__fit"><b>Best for:</b> "Where do we even start?"</p>
+          </article>
+          <article class="card card--featured reveal">
+            <p class="card__badge">★ Most popular</p>
+            <p class="card__tag">≈30 days</p>
+            <h3>30-Day Build Sprint</h3>
+            <p>One AI workflow — agent, copilot, or automation — live in production, integrated and trained.</p>
+            <p class="card__fit"><b>Best for:</b> "We need something working this quarter."</p>
+          </article>
+          <article class="card reveal">
+            <p class="card__tag">2–4 weeks</p>
+            <h3>AI Team Enablement</h3>
+            <p>Hands-on workshops, usage policy, prompt playbooks, and a champion program.</p>
+            <p class="card__fit"><b>Best for:</b> "We have tools, not adoption."</p>
+          </article>
+          <article class="card reveal">
+            <p class="card__tag">Monthly</p>
+            <h3>Fractional AI Lead</h3>
+            <p>A senior AI lead on call for roadmap, builds, monitoring, and vendor decisions.</p>
+            <p class="card__fit"><b>Best for:</b> "We need ongoing ownership."</p>
+          </article>
+        </div>
+        <div class="cta-center">
+          <a class="btn btn--cta btn--lg" href="#contact" data-cta="services">Book my free AI call</a>
+          <p class="micro">Not sure which fits? That's what the call is for.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. USE CASES -->
+    <section class="section" id="use-cases" aria-labelledby="uc-h">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">Where AI pays off first</p>
+          <h2 id="uc-h">Wins we ship in every department.</h2>
+          <p class="sample-note"><span class="sample-tag">Example</span> Metrics show typical target ranges, not guaranteed results.</p>
+        </header>
+        <!-- PLACEHOLDER: metrics are typical ranges; replace with your own data -->
+        <div class="grid grid--3">
+          <article class="uc reveal"><h3>Customer support</h3><p>AI drafts replies from your knowledge base.</p><p class="uc__metric">First-response time ↓ 60%</p></article>
+          <article class="uc reveal"><h3>Finance &amp; ops</h3><p>Invoice, PO, and receipt extraction straight into your ERP.</p><p class="uc__metric">Manual entry ↓ 80%</p></article>
+          <article class="uc reveal"><h3>Sales</h3><p>Call summaries, CRM updates, and personalised follow-ups.</p><p class="uc__metric">Admin per rep ↓ 5 hrs/week</p></article>
+          <article class="uc reveal"><h3>HR &amp; recruiting</h3><p>Resume screening, onboarding Q&amp;A, and a policy assistant.</p><p class="uc__metric">Time-to-screen ↓ 70%</p></article>
+          <article class="uc reveal"><h3>Internal knowledge</h3><p>A private assistant that answers from your own docs.</p><p class="uc__metric">Searching time ↓ 50%</p></article>
+          <article class="uc reveal"><h3>Reporting</h3><p>Automated weekly reports and anomaly alerts.</p><p class="uc__metric">Reporting time ↓ 90%</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PROCESS -->
+    <section class="section section--tint" id="process" aria-labelledby="process-h">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">How it works</p>
+          <h2 id="process-h">From first call to live workflow in four steps.</h2>
+        </header>
+        <ol class="timeline">
+          <li class="reveal"><span class="timeline__badge">Free</span><h3>AI Opportunity Call <small>30 min</small></h3><p>We learn your workflows, goals, and constraints.</p></li>
+          <li class="reveal"><span class="timeline__badge">Free</span><h3>Your AI Opportunity Map <small>within 48h</small></h3><p>Top 3 use cases with effort, ROI estimate, and risks. Yours to keep.</p></li>
+          <li class="reveal"><h3>Build Sprint <small>≈30 days</small></h3><p>We build, integrate, and test — you get a demo every week.</p></li>
+          <li class="reveal"><h3>Launch &amp; measure</h3><p>Team trained, metric tracked, next workflow queued.</p></li>
+        </ol>
+        <div class="cta-center">
+          <a class="btn btn--cta btn--lg" href="#contact" data-cta="process">Book my free AI call</a>
+          <p class="micro">Steps 1 and 2 are free. No obligation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. RESULTS -->
+    <section class="section" id="results" aria-labelledby="results-h">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">Results</p>
+          <h2 id="results-h">The kind of results we build for.</h2>
+          <p class="sample-note"><span class="sample-tag">Example</span> Illustrative case studies. Real, client-approved stories will replace these.</p>
+        </header>
+        <!-- PLACEHOLDER: replace with real, permissioned case studies -->
+        <div class="grid grid--3">
+          <article class="case reveal">
+            <p class="case__who">Logistics company · 120 staff</p>
+            <p class="case__big">31 hrs/week saved</p>
+            <dl>
+              <dt>Problem</dt><dd>3 coordinators re-keying shipping documents.</dd>
+              <dt>Built</dt><dd>Document-extraction agent feeding their TMS.</dd>
+              <dt>Result</dt><dd>Errors ↓ 74%, live in 26 days.</dd>
+            </dl>
+          </article>
+          <article class="case reveal">
+            <p class="case__who">B2B SaaS · 60 staff</p>
+            <p class="case__big">9h → 47 min</p>
+            <dl>
+              <dt>Problem</dt><dd>Support backlog growing 20% a quarter.</dd>
+              <dt>Built</dt><dd>AI reply drafting inside their help desk.</dd>
+              <dt>Result</dt><dd>First response time down, CSAT +11 pts.</dd>
+            </dl>
+          </article>
+          <article class="case reveal">
+            <p class="case__who">Accounting firm · 45 staff</p>
+            <p class="case__big">6 days → 2 days</p>
+            <dl>
+              <dt>Problem</dt><dd>Month-end reporting took a full week.</dd>
+              <dt>Built</dt><dd>Automated reconciliation and report generation.</dd>
+              <dt>Result</dt><dd>Month-end close cut by two-thirds.</dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. TESTIMONIALS -->
+    <section class="section section--tint" id="testimonials" aria-labelledby="t-h">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">In their words</p>
+          <h2 id="t-h">Operators who stopped waiting on AI.</h2>
+          <p class="sample-note"><span class="sample-tag">Example</span> Sample testimonials for layout only. These are not real clients.</p>
+        </header>
+        <!-- PLACEHOLDER: NEVER publish invented quotes — replace with real, permissioned testimonials -->
+        <div class="grid grid--3">
+          <figure class="quote reveal">
+            <blockquote>"We'd sat through four AI vendor pitches. <span data-brand>Meridian AI</span> was the only team that shipped something our people use every day."</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">PS</span><span><b>Priya S.</b> COO, logistics company</span></figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>"The Opportunity Map alone was worth the call. We knew exactly where to start and what it would save."</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">DR</span><span><b>Daniel R.</b> Founder, SaaS company</span></figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>"They trained my team, not just the model. Adoption was the part I was most worried about."</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">ML</span><span><b>Maria L.</b> Head of Finance, accounting firm</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. WHY US / COMPARISON -->
+    <section class="section" id="compare" aria-labelledby="compare-h">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="eyebrow">Why us</p>
+          <h2 id="compare-h">Senior strategy and real builds — without the big-firm price tag.</h2>
+        </header>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Comparison table, scrolls horizontally">
+          <table class="compare">
+            <thead>
+              <tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col" class="us" data-brand>Meridian AI</th><th scope="col">Big consultancy</th><th scope="col">Freelancer / no-code</th><th scope="col">DIY</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Time to first live workflow</th><td class="us"><b>~30 days</b></td><td>3–6 months</td><td>2–4 weeks</td><td>Unknown</td></tr>
+              <tr><th scope="row">Strategy &amp; roadmap</th><td class="us yes">✓</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+              <tr><th scope="row">Production build &amp; integrations</th><td class="us yes">✓</td><td>Often outsourced</td><td>Partial</td><td>Partial</td></tr>
+              <tr><th scope="row">Team training &amp; adoption</th><td class="us yes">✓</td><td>Extra cost</td><td class="no">✗</td><td class="no">✗</td></tr>
+              <tr><th scope="row">Security &amp; data handling</th><td class="us yes">✓ In your cloud</td><td class="yes">✓</td><td>Varies</td><td>Varies</td></tr>
+              <tr><th scope="row">Fixed price up front</th><td class="us yes">✓</td><td class="no">✗</td><td class="yes">✓</td><td>—</td></tr>
+              <tr><th scope="row">ROI measured</th><td class="us yes">✓ Weekly</td><td>Sometimes</td><td class="no">✗</td><td class="no">✗</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cta-center">
+          <a class="btn btn--cta btn--lg" href="#contact" data-cta="compare">Book my free AI call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. FAQ -->
+    <section class="section section--tint" id="faq" aria-labelledby="faq-h">
+      <div class="wrap wrap--narrow">
+        <header class="sec-head">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-h">Questions, answered.</h2>
+        </header>
+        <div class="faq">
+          <!-- PLACEHOLDER: confirm pricing range -->
+          <details><summary>How much does it cost?</summary><p>The call and Opportunity Map are free. Sprints are fixed-price and quoted up front; most first projects land between $8k and $25k depending on scope. You'll know the number before anything starts.</p></details>
+          <details><summary>We tried AI and it flopped. Why would this be different?</summary><p>Most pilots fail on integration and adoption, not the model. Both are part of our scope, and usage is one of the success metrics we track.</p></details>
+          <details><summary>Is our data safe?</summary><p>Yes. We work under NDA, build inside your own cloud and accounts where possible, use providers that don't train on your data, and apply role-based access.</p></details>
+          <details><summary>How much of my team's time does it take?</summary><p>About 2 hours a week from one internal owner, plus a short training session for users. We do the heavy lifting.</p></details>
+          <!-- PLACEHOLDER: confirm guarantee terms -->
+          <details><summary>What if it doesn't deliver?</summary><p>We agree on a success metric before we start. If the Build Sprint doesn't hit it, we keep working at no extra cost until it does.</p></details>
+          <details><summary>Do you only use ChatGPT?</summary><p>No. We're model-agnostic and pick the right model and tools for each workflow — OpenAI, Anthropic, Google, open-source, or plain automation when AI isn't needed.</p></details>
+          <details><summary>Who maintains it after launch?</summary><p>You get full handover docs and training. Many clients keep us on as a Fractional AI Lead for monitoring and the next builds.</p></details>
+          <details><summary>Is my company too small for this?</summary><p>If your team spends 10+ hours a week on repetitive work, there's almost certainly a workflow worth automating. The free call will tell you honestly.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. FINAL CTA + FORM -->
+    <section class="section section--ink contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap contact__grid">
+        <div class="contact__copy">
+          <p class="eyebrow eyebrow--light">Start here</p>
+          <h2 id="contact-h">Book your free AI Opportunity Call.</h2>
+          <p class="lead lead--light">In 30 minutes we'll find where AI can save your team the most time — and within 48 hours you'll get a written AI Opportunity Map. Yours to keep, whether or not we work together.</p>
+          <ul class="checks">
+            <li>Top 3 AI use cases for your business, ranked by ROI</li>
+            <li>Effort, cost, and risk for each</li>
+            <li>No pitch deck, no obligation</li>
+          </ul>
+          <!-- PLACEHOLDER: confirm guarantee -->
+          <div class="guarantee">
+            <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><b>Our promise:</b> if the Build Sprint doesn't hit the success metric we agree on, we keep working at no extra cost.</p>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="lead-form" novalidate>
+            <div class="field">
+              <label for="f-name">Full name <span aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Jane Cooper" required aria-describedby="e-name" />
+              <p class="err" id="e-name" data-msg="Please enter your name."></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Work email <span aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required aria-describedby="e-email" />
+              <p class="err" id="e-email" data-msg="Please enter a valid work email."></p>
+            </div>
+            <div class="field">
+              <label for="f-company">Company <span aria-hidden="true">*</span></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Acme Logistics" required aria-describedby="e-company" />
+              <p class="err" id="e-company" data-msg="Please enter your company."></p>
+            </div>
+            <div class="field">
+              <label for="f-goal">What do you most want AI to fix? <span aria-hidden="true">*</span></label>
+              <select id="f-goal" name="goal" required aria-describedby="e-goal">
+                <option value="">Choose one…</option>
+                <option>Repetitive manual work</option>
+                <option>Customer support load</option>
+                <option>Sales &amp; CRM admin</option>
+                <option>Reporting &amp; finance ops</option>
+                <option>Internal knowledge / search</option>
+                <option>Not sure yet — help me find it</option>
+              </select>
+              <p class="err" id="e-goal" data-msg="Please pick one."></p>
+            </div>
+            <div class="field">
+              <label for="f-note">Anything else we should know? <span class="opt">(optional)</span></label>
+              <textarea id="f-note" name="note" rows="3" placeholder="Team size, tools you use, deadlines…"></textarea>
+            </div>
+            <!-- honeypot: hidden from humans -->
+            <div class="hp" aria-hidden="true">
+              <label for="f-website">Website</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <button class="btn btn--cta btn--lg btn--block" type="submit" data-cta="form">
+              <span class="btn__label">Book my free AI call</span><span class="spinner" aria-hidden="true"></span>
+            </button>
+            <p class="micro micro--center">🔒 We reply within 1 business day. No spam, ever.</p>
+            <p class="form-status" role="alert" aria-live="assertive"></p>
+          </form>
+
+          <div class="success" id="form-success" hidden tabindex="-1">
+            <div class="success__icon" aria-hidden="true">✓</div>
+            <h3>You're in. 🎉</h3>
+            <p>Check your inbox — we'll send 3 time slots within 1 business day. Want to move faster? Reply to that email with your top workflow.</p>
+          </div>
+
+          <p class="alt-link"><a href="#" id="external-form-link" target="_blank" rel="noopener" data-cta="external-form">Prefer a form link? Open it here →</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span id="year"></span> <span data-brand>Meridian AI</span> · Senior AI consulting for growing teams.</p>
+      <nav aria-label="Footer">
+        <a href="#" id="privacy-link">Privacy</a>
+        <a href="#" id="email-link">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a class="btn btn--cta btn--block" href="#contact" data-cta="sticky">Book my free AI call</a>
+  </div>
+
+  <script>
+/* =========================================================
+   CONFIG — the only place to set brand + form destinations
+   ========================================================= */
+const CONFIG = {
+  BRAND_NAME: "Meridian AI",            // PLACEHOLDER: your firm's name
+  FORM_ENDPOINT: "",                    // e.g. "https://formspree.io/f/xxxxxxx" — blank = dev mode (simulated success)
+  EXTERNAL_FORM_URL: "",                // e.g. Typeform / Google Form / Calendly link — blank hides the link
+  CONTACT_EMAIL: "hello@example.com",   // PLACEHOLDER
+  PRIVACY_URL: "#",                     // PLACEHOLDER
+};
+
+(function () {
+  "use strict";
+  document.documentElement.classList.remove("no-js");
+
+  /* ---------- Brand + config wiring ---------- */
+  document.querySelectorAll("[data-brand]").forEach((el) => (el.textContent = CONFIG.BRAND_NAME));
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const emailLink = document.getElementById("email-link");
+  emailLink.href = "mailto:" + CONFIG.CONTACT_EMAIL;
+  document.getElementById("privacy-link").href = CONFIG.PRIVACY_URL;
+
+  const extLink = document.getElementById("external-form-link");
+  if (CONFIG.EXTERNAL_FORM_URL) {
+    extLink.href = CONFIG.EXTERNAL_FORM_URL;
+  } else {
+    extLink.closest(".alt-link").hidden = true;
+  }
+
+  /* ---------- Analytics hooks ---------- */
+  function track(event, data) {
+    const payload = Object.assign({ event }, data);
+    if (Array.isArray(window.dataLayer)) window.dataLayer.push(payload);
+    if (!CONFIG.FORM_ENDPOINT) console.debug("[track]", payload);
+  }
+  document.addEventListener("click", (e) => {
+    const cta = e.target.closest("[data-cta]");
+    if (cta && cta.tagName === "A") track("cta_click", { cta: cta.dataset.cta });
+  });
+
+  /* ---------- Nav border on scroll ---------- */
+  const nav = document.querySelector(".nav");
+  const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 8);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Sticky mobile CTA: show after hero, hide near form ---------- */
+  const sticky = document.getElementById("sticky-cta");
+  const hero = document.getElementById("hero");
+  const contact = document.getElementById("contact");
+  let heroOut = false, contactIn = false;
+  const updateSticky = () => sticky.classList.toggle("is-visible", heroOut && !contactIn);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => { heroOut = !e.isIntersecting; updateSticky(); }).observe(hero);
+    new IntersectionObserver(([e]) => { contactIn = e.isIntersecting; updateSticky(); }, { threshold: 0.05 }).observe(contact);
+
+    /* ---------- Reveal on scroll ---------- */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-in"));
+  }
+
+  /* ---------- FAQ: one open at a time ---------- */
+  const faqs = document.querySelectorAll(".faq details");
+  faqs.forEach((d) => d.addEventListener("toggle", () => {
+    if (d.open) faqs.forEach((o) => { if (o !== d) o.open = false; });
+  }));
+
+  /* ---------- Lead form ---------- */
+  const form = document.getElementById("lead-form");
+  const status = form.querySelector(".form-status");
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const success = document.getElementById("form-success");
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function validateField(input) {
+    const field = input.closest(".field");
+    const err = field && field.querySelector(".err");
+    if (!err) return true;
+    let ok = input.value.trim() !== "";
+    if (ok && input.type === "email") ok = EMAIL_RE.test(input.value.trim());
+    field.classList.toggle("is-invalid", !ok);
+    input.setAttribute("aria-invalid", String(!ok));
+    err.textContent = ok ? "" : err.dataset.msg;
+    return ok;
+  }
+
+  const required = form.querySelectorAll("[required]");
+  required.forEach((input) => {
+    input.addEventListener("blur", () => validateField(input));
+    input.addEventListener("input", () => {
+      if (input.closest(".field").classList.contains("is-invalid")) validateField(input);
+    });
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.textContent = "";
+
+    let firstInvalid = null;
+    required.forEach((input) => { if (!validateField(input) && !firstInvalid) firstInvalid = input; });
+    if (firstInvalid) { firstInvalid.focus(); return; }
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (data.website) return; // honeypot tripped — silently drop
+    delete data.website;
+    data.source = location.href;
+    data.submitted_at = new Date().toISOString();
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add("is-loading");
+
+    try {
+      if (CONFIG.FORM_ENDPOINT) {
+        const res = await fetch(CONFIG.FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+      } else {
+        console.info("[dev mode] FORM_ENDPOINT not set — lead payload:", data);
+        await new Promise((r) => setTimeout(r, 700));
+      }
+      track("lead_submit", { goal: data.goal });
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    } catch (err) {
+      console.error(err);
+      status.textContent = "Something went wrong sending your request. Please try again or email us at " + CONFIG.CONTACT_EMAIL + ".";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("is-loading");
+    }
+  });
+})();
+
+</script>
+</body>
+</html>
